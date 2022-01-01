@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
+import MapBox from "../components/MapBox";
 
 function Search({ searchResults }) {
   const router = useRouter();
@@ -21,7 +22,9 @@ function Search({ searchResults }) {
           <p className="text-xs">
             300+ Stays - {range} - for {noOfGuests} guests{" "}
           </p>
-          <h1 className="text-2xl font-semibold mt-2 mb-6">{location}</h1>
+          <h1 className="text-2xl font-semibold mt-2 mb-6">
+            Stays in {location}
+          </h1>
 
           <div
             className="hidden lg:inline-flex mb-5 space-x-5 text-gray-500
@@ -48,6 +51,10 @@ function Search({ searchResults }) {
               />
             ))}
           </div>
+        </section>
+
+        <section className="hidden xl:inline-flex xl:min-w-[600px]">
+          <MapBox searchResults={searchResults} />
         </section>
       </main>
 
